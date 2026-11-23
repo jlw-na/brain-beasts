@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instruction Booklet — Brain Beasts</title>
+  <meta name="description" content="The official Brain Beasts instruction booklet: the screens, the care meters, all nine training games, battles, bosses, the house and parental controls.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <style>
+    /* Instruction booklet styling: a printed game manual, circa 2002. No external fonts or scripts. */
+    :root {
+      --ink: #3b2d47;
+      --ink-soft: #645373;
+      --paper: #fffaf0;
+      --paper-dark: #f4ead6;
+      --coral: #ff6b4a;
+      --coral-dark: #d94e32;
+      --gold: #ffd35c;
+      --gold-dark: #e0a91f;
+      --sky: #3f8fe8;
+      --sky-dark: #24579b;
+      --meadow: #5cbf4a;
+      --plum: #6c3fb5;
+      --night: #1d1840;
+      --strong: #ff8a4c;
+      --fast: #3f8fe8;
+      --smart: #e86ca8;
+      --head: "Arial Black", "Arial Bold", Gadget, "Helvetica Neue", Arial, sans-serif;
+      --body: Verdana, Geneva, "Trebuchet MS", Tahoma, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background-color: var(--night);
+      background-image:
+        radial-gradient(circle at 20% 10%, rgba(255, 211, 92, 0.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.14) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0 1.5px, transparent 2.5px),
+        linear-gradient(180deg, #2a2160 0%, #1d1840 60%, #140f2e 100%);
+      background-size: 140px 140px, 190px 190px, 110px 110px, 100% 100%;
+      background-attachment: fixed;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--sky-dark); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ---------- Site bar ---------- */
+    .sitebar {
+      max-width: 880px; margin: 0 auto; padding: 14px 16px 0;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .sitebar .brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: var(--head); font-size: 1.05rem; }
+    .sitebar .brand img { width: 36px; height: 36px; border-radius: 9px; border: 2px solid #fff; }
+    .sitebar nav { display: flex; flex-wrap: wrap; gap: 6px; }
+    .sitebar nav a {
+      color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem;
+      padding: 5px 12px; border-radius: 999px; border: 2px solid rgba(255, 255, 255, 0.35);
+    }
+    .sitebar nav a:hover, .sitebar nav a.active { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+    /* ---------- Booklet pages ---------- */
+    .booklet { max-width: 880px; margin: 0 auto; padding: 18px 16px 60px; }
+    .page {
+      position: relative;
+      background: var(--paper);
+      background-image: repeating-linear-gradient(0deg, rgba(59, 45, 71, 0.025) 0 1px, transparent 1px 4px);
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.45);
+      margin: 0 0 34px;
+      padding: 0 0 46px;
+      overflow: hidden;
+    }
+    .page-body { padding: 22px 30px 0; }
+    .folio {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 34px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 18px;
+      border-top: 3px double var(--ink); background: var(--paper-dark);
+      font-family: var(--head); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft);
+    }
+    .folio b { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--gold); letter-spacing: 0; }
+
+    /* Chapter banner across the top of a page */
+    .banner {
+      position: relative;
+      background: linear-gradient(180deg, var(--c1, var(--coral)) 0%, var(--c2, var(--coral-dark)) 100%);
+      border-bottom: 4px solid var(--ink);
+      padding: 16px 30px 14px 104px;
+      min-height: 84px;
+      color: #fff;
+    }
+    .banner::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+      background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0 12px, transparent 12px 24px);
+    }
+    .banner .chap {
+      position: absolute; left: 20px; top: 50%; transform: translateY(-50%) rotate(-6deg);
+      width: 66px; height: 66px; border-radius: 50%;
+      background: var(--gold); color: var(--ink); border: 4px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      display: grid; place-items: center; text-align: center;
+      font-family: var(--head); font-size: 1.6rem; line-height: 1;
+    }
+    .banner .chap small { display: block; font-size: 0.5rem; letter-spacing: 0.08em; }
+    .banner h2 {
+      margin: 0; font-family: var(--head); font-size: 1.85rem; line-height: 1.1; letter-spacing: 0.01em;
+      text-shadow: 3px 3px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink);
+    }
+    .banner p { margin: 4px 0 0; font-weight: bold; font-size: 0.88rem; opacity: 0.95; }
+
+    h3 {
+      font-family: var(--head); font-size: 1.2rem; margin: 26px 0 8px; color: var(--ink);
+      display: flex; align-items: center; gap: 10px;
+    }
+    h3::before {
+      content: ""; flex: none; width: 14px; height: 14px; background: var(--coral); border: 3px solid var(--ink);
+      transform: rotate(45deg);
+    }
+    h4 { font-family: var(--head); font-size: 1rem; margin: 18px 0 4px; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    strong { color: var(--ink); }
+    .lede { font-size: 1.02rem; }
+
+    /* ---------- Cover ---------- */
+    .cover {
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0) 46%),
+        repeating-conic-gradient(from 0deg at 50% 42%, #ffcf5c 0deg 9deg, #ffb238 9deg 18deg);
+      padding: 34px 24px 60px;
+    }
+    .cover .wordmark { width: min(440px, 88%); margin: 0 auto 6px; filter: drop-shadow(4px 5px 0 rgba(59, 45, 71, 0.6)); }
+    .cover .subtitle {
+      display: inline-block; margin: 10px 0 18px; padding: 8px 20px;
+      background: var(--ink); color: var(--gold); border-radius: 6px;
+      font-family: var(--head); font-size: 1.15rem; letter-spacing: 0.2em; text-transform: uppercase;
+      transform: rotate(-2deg); box-shadow: 4px 4px 0 var(--coral-dark);
+    }
+    .cover-shot {
+      width: min(520px, 100%); margin: 6px auto 0; border: 5px solid var(--ink); border-radius: 18px;
+      box-shadow: 8px 8px 0 rgba(59, 45, 71, 0.55); overflow: hidden; background: #fff;
+    }
+    .cover .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+    .badge {
+      background: #fff; border: 3px solid var(--ink); border-radius: 8px; padding: 4px 10px;
+      font-family: var(--head); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .burst {
+      position: absolute; right: 22px; top: 24px; width: 112px; height: 112px;
+      display: grid; place-items: center; text-align: center;
+      font-family: var(--head); font-size: 0.82rem; line-height: 1.1; color: #fff;
+      background: var(--coral);
+      clip-path: polygon(50% 0, 61% 12%, 76% 6%, 79% 22%, 95% 24%, 89% 39%, 100% 50%, 89% 61%, 95% 76%, 79% 78%, 76% 94%, 61% 88%, 50% 100%, 39% 88%, 24% 94%, 21% 78%, 5% 76%, 11% 61%, 0 50%, 11% 39%, 5% 24%, 21% 22%, 24% 6%, 39% 12%);
+      transform: rotate(10deg);
+      text-shadow: 2px 2px 0 var(--ink);
+    }
+
+    /* ---------- Screenshots ---------- */
+    figure { margin: 14px 0 18px; }
+    .shot { border: 4px solid var(--ink); border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 5px 5px 0 rgba(59, 45, 71, 0.35); }
+    figcaption {
+      margin-top: 8px; font-size: 0.8rem; color: var(--ink-soft); font-style: italic; text-align: center;
+    }
+    figcaption b { font-style: normal; color: var(--ink); }
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .duo figure, .trio figure { margin: 0; }
+    .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 22px; align-items: start; }
+    .split > figure { margin-top: 4px; }
+
+    /* Numbered callouts over the annotated home screen */
+    .annotated { position: relative; }
+    .pin {
+      position: absolute; transform: translate(-50%, -50%);
+      width: clamp(20px, 3.4vw, 30px); height: clamp(20px, 3.4vw, 30px);
+      border-radius: 50%; background: var(--coral); color: #fff; border: 3px solid var(--ink);
+      display: grid; place-items: center; font-family: var(--head); font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .legend { list-style: none; padding: 0; margin: 12px 0 0; columns: 2; column-gap: 26px; }
+    .legend li { break-inside: avoid; display: flex; gap: 10px; margin-bottom: 9px; font-size: 0.9rem; }
+    .legend .n {
+      flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: #fff;
+      border: 2px solid var(--ink); display: grid; place-items: center; font-family: var(--head); font-size: 0.72rem; margin-top: 1px;
+    }
+
+    /* ---------- Boxes ---------- */
+    .tip, .note, .warn, .secret {
+      position: relative; border: 3px solid var(--ink); border-radius: 10px; padding: 14px 16px 12px 16px;
+      margin: 18px 0; box-shadow: 4px 4px 0 var(--ink); font-size: 0.92rem;
+    }
+    .tip { background: #fff4c7; }
+    .note { background: #e4f1ff; }
+    .secret { background: #efe4ff; }
+    .warn { background: #fff; border-width: 4px; }
+    .tip > .tag, .note > .tag, .secret > .tag {
+      position: absolute; top: -15px; left: 14px; padding: 2px 10px; border: 3px solid var(--ink); border-radius: 6px;
+      font-family: var(--head); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; transform: rotate(-3deg);
+    }
+    .tip > .tag { background: var(--gold); }
+    .note > .tag { background: var(--sky); color: #fff; }
+    .secret > .tag { background: var(--plum); color: #fff; }
+    .tip p:last-child, .note p:last-child, .secret p:last-child, .warn p:last-child { margin-bottom: 0; }
+    .warn h4 {
+      margin: -2px 0 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.12em; text-align: center;
+      border-bottom: 3px double var(--ink); padding-bottom: 6px;
+    }
+
+    /* ---------- Tables ---------- */
+    .table-wrap { overflow-x: auto; margin: 12px 0 18px; border: 3px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 rgba(59, 45, 71, 0.35); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.86rem; background: #fff; }
+    th {
+      background: var(--ink); color: #fff; font-family: var(--head); font-weight: normal; font-size: 0.78rem;
+      letter-spacing: 0.05em; text-transform: uppercase; text-align: left; padding: 8px 10px;
+    }
+    td { padding: 7px 10px; border-top: 2px solid #eadfca; vertical-align: top; }
+    tr:nth-child(even) td { background: #fbf5e8; }
+    td.num, th.num { text-align: center; white-space: nowrap; }
+
+    /* Element chart */
+    .chart td, .chart th { text-align: center; padding: 6px 4px; }
+    .chart th:first-child, .chart td:first-child { text-align: left; padding-left: 10px; white-space: nowrap; }
+    .hit { display: inline-block; min-width: 26px; padding: 1px 5px; border-radius: 6px; font-weight: bold; }
+    .hit.up { background: #c9f0bd; color: #1f6d12; }
+    .hit.down { background: #ffd2c8; color: #a4321a; }
+    .el { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--ink); margin-right: 6px; vertical-align: -1px; }
+
+    /* Stat chips */
+    .stat { display: inline-block; padding: 0 8px; border-radius: 6px; border: 2px solid var(--ink); color: #fff; font-weight: bold; font-size: 0.82rem; }
+    .stat.s { background: var(--strong); }
+    .stat.f { background: var(--fast); }
+    .stat.m { background: var(--smart); }
+
+    /* Training game cards */
+    .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 14px 0 6px; }
+    .game { background: #fff; border: 3px solid var(--ink); border-radius: 10px; overflow: hidden; box-shadow: 4px 4px 0 rgba(59, 45, 71, 0.35); display: flex; flex-direction: column; }
+    .game img { border-bottom: 3px solid var(--ink); }
+    .game .gt { padding: 9px 11px 0; font-family: var(--head); font-size: 0.95rem; }
+    .game .gs { padding: 2px 11px 0; font-size: 0.7rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+    .game p { padding: 6px 11px 10px; margin: 0; font-size: 0.82rem; line-height: 1.5; }
+
+    /* Contents */
+    .toc { list-style: none; padding: 0; margin: 6px 0 0; counter-reset: toc; }
+    .toc li { display: flex; align-items: baseline; gap: 8px; margin: 0; padding: 7px 0; border-bottom: 2px dotted #d9cdb4; font-weight: bold; }
+    .toc li a { color: var(--ink); text-decoration: none; }
+    .toc li a:hover { color: var(--coral-dark); }
+    .toc .dots { flex: 1; }
+    .toc .pg { font-family: var(--head); color: var(--coral-dark); }
+    .toc .cn { font-family: var(--head); color: var(--ink-soft); width: 28px; }
+
+    .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 12px 0 8px; }
+    .control { background: #fff; border: 3px solid var(--ink); border-radius: 10px; padding: 12px; text-align: center; box-shadow: 3px 3px 0 var(--ink); font-size: 0.85rem; }
+    .control svg { width: 64px; height: 64px; display: block; margin: 0 auto 6px; }
+    .control b { display: block; font-family: var(--head); font-size: 1rem; }
+
+    .back-cover { text-align: center; background: linear-gradient(180deg, #2c208f 0%, #1d1840 100%); color: #fff; padding: 34px 24px 70px; }
+    .back-cover h2 { font-family: var(--head); font-size: 1.6rem; margin: 10px 0; text-shadow: 3px 3px 0 #000; }
+    .back-cover a { color: var(--gold); font-weight: bold; }
+    .back-cover .folio { background: #140f2e; color: #a99fd8; border-top-color: #a99fd8; }
+    .back-cover .icon-big { width: 110px; height: 110px; border-radius: 24px; border: 4px solid #fff; margin: 0 auto; box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5); }
+
+    @media (max-width: 720px) {
+      body { font-size: 14.5px; }
+      .booklet { padding: 14px 16px 40px; }
+      .page { box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45); }
+      .page-body { padding: 18px 16px 0; }
+      .banner { padding: 14px 16px 14px 86px; min-height: 76px; }
+      .banner .chap { left: 12px; width: 58px; height: 58px; font-size: 1.35rem; }
+      .banner h2 { font-size: 1.4rem; }
+      .split, .duo { grid-template-columns: 1fr; }
+      .trio, .games, .controls { grid-template-columns: 1fr 1fr; }
+      .legend { columns: 1; }
+      .burst { width: 86px; height: 86px; font-size: 0.66rem; right: 8px; top: 10px; }
+    }
+    @media (max-width: 440px) {
+      .trio, .games, .controls { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sitebar { display: none; }
+      .page { box-shadow: none; break-inside: avoid-page; }
+    }
+  </style>
+</head>
+<body>
+  <header class="sitebar">
+    <a class="brand" href="index.html"><img src="icon.png" alt="">Brain Beasts</a>
+    <nav aria-label="Main">
+      <a href="index.html">Overview</a>
+      <a href="manual.html" class="active">Manual</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <main class="booklet">
+
+    <!-- ===================== COVER ===================== -->
+    <section class="page cover" aria-label="Cover">
+      <div class="burst">Hatch!<br>Train!<br>Battle!</div>
+      <img class="wordmark" src="wordmark.png" alt="Brain Beasts" width="440" height="220">
+      <div class="subtitle">Instruction Booklet</div>
+      <div class="cover-shot"><img src="manual/home.jpg" alt="Ember the fire beast, crowned, on the home screen" width="1024" height="768"></div>
+      <div class="badges">
+        <span class="badge">Ages 3–9+</span>
+        <span class="badge">1 player per profile</span>
+        <span class="badge">Touch screen</span>
+        <span class="badge">No ads · No internet needed</span>
+      </div>
+      <div class="folio"><span>Brain Beasts</span><span>Keep this booklet for future reference</span></div>
+    </section>
+
+    <!-- ===================== CONTENTS ===================== -->
+    <section class="page" id="contents" aria-labelledby="contents-h">
+      <div class="banner" style="--c1:#6c3fb5;--c2:#4a2788">
+        <div class="chap">★</div>
+        <h2 id="contents-h">Contents</h2>
+        <p>Thank you for choosing Brain Beasts!</p>
+      </div>
+      <div class="page-body">
+        <p class="lede">
+          Welcome, Beast Keeper! Please read this booklet with your young player before starting. It
+          explains every screen in the game, all nine training games, battles and bosses, and the
+          settings grown-ups can change. Little ones don't need to read anything to play: every button
+          has a picture, and the game gives a gentle tour the first time.
+        </p>
+        <ol class="toc">
+          <li><span class="cn">1</span><a href="#start">Getting Started</a><span class="dots"></span><span class="pg">3</span></li>
+          <li><span class="cn">2</span><a href="#home">The Home Screen</a><span class="dots"></span><span class="pg">4</span></li>
+          <li><span class="cn">3</span><a href="#care">Looking After Your Beast</a><span class="dots"></span><span class="pg">5</span></li>
+          <li><span class="cn">4</span><a href="#train">Training &amp; the Nine Brain Games</a><span class="dots"></span><span class="pg">7</span></li>
+          <li><span class="cn">5</span><a href="#grow">Growing Up</a><span class="dots"></span><span class="pg">9</span></li>
+          <li><span class="cn">6</span><a href="#battle">Battles</a><span class="dots"></span><span class="pg">10</span></li>
+          <li><span class="cn">7</span><a href="#boss">Boss Battles</a><span class="dots"></span><span class="pg">12</span></li>
+          <li><span class="cn">8</span><a href="#shop">The Shop &amp; Dress Up</a><span class="dots"></span><span class="pg">13</span></li>
+          <li><span class="cn">9</span><a href="#house">The House &amp; Your Collection</a><span class="dots"></span><span class="pg">14</span></li>
+          <li><span class="cn">10</span><a href="#beasts">Meet the Beasts</a><span class="dots"></span><span class="pg">16</span></li>
+          <li><span class="cn">11</span><a href="#tips">Hints &amp; Tips</a><span class="dots"></span><span class="pg">17</span></li>
+          <li><span class="cn">12</span><a href="#parents">For Grown-ups</a><span class="dots"></span><span class="pg">18</span></li>
+        </ol>
+        <div class="warn" style="margin-top:26px">
+          <h4>⚠ Important: please read</h4>
+          <p>
+            Some battles, hatching and the dance party use bright flashes, screen shakes and flashing
+            disco lights. If your child is sensitive to flashing images, or simply prefers things gentle,
+            turn on <strong>Calm mode</strong> in Settings (see <a href="#parents">chapter 12</a>). It swaps
+            flashes for a soft glow, stops the shaking and slows the disco floor right down.
+          </p>
+          <p>Take a break now and then. Your beast will wait patiently: nothing happens to it while the game is closed.</p>
+        </div>
+      </div>
+      <div class="folio"><span>Contents</span><b>2</b></div>
+    </section>
+
+    <!-- ===================== 1. GETTING STARTED ===================== -->
+    <section class="page" id="start" aria-labelledby="start-h">
+      <div class="banner" style="--c1:#5cbf4a;--c2:#3c8f2d">
+        <div class="chap"><span><small>CH.</small>1</span></div>
+        <h2 id="start-h">Getting Started</h2>
+        <p>Make a player, pick two eggs, and hatch your first beasts.</p>
+      </div>
+      <div class="page-body">
+        <h3>Controls</h3>
+        <p>Brain Beasts is played entirely with a finger. There are only three moves to learn:</p>
+        <div class="controls">
+          <div class="control">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="14" fill="none" stroke="#ff6b4a" stroke-width="4" stroke-dasharray="6 5"/><path d="M28 60V30a4 4 0 0 1 8 0v14l10 3c3 1 4 3 4 6l-1 7z" fill="#fff" stroke="#3b2d47" stroke-width="3.5" stroke-linejoin="round"/></svg>
+            <b>Tap</b>Press buttons, answer questions, pat your beast, throw the ball.
+          </div>
+          <div class="control">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 14h20" stroke="#ff6b4a" stroke-width="4" stroke-linecap="round"/><path d="M20 8l7 6-7 6" fill="none" stroke="#ff6b4a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 60V30a4 4 0 0 1 8 0v14l10 3c3 1 4 3 4 6l-1 7z" fill="#fff" stroke="#3b2d47" stroke-width="3.5" stroke-linejoin="round"/></svg>
+            <b>Drag</b>Pick up a plaster at the Doctor and drop it on a sore spot.
+          </div>
+          <div class="control">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 40c8-22 22-30 30-18s14 4 22-8" fill="none" stroke="#ff6b4a" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 7"/><path d="M30 62V34a4 4 0 0 1 8 0v12l10 3c3 1 4 3 4 6l-1 7z" fill="#fff" stroke="#3b2d47" stroke-width="3.5" stroke-linejoin="round"/></svg>
+            <b>Trace</b>Join the stars, or lead a sleepy sheep along its path, at bedtime.
+          </div>
+        </div>
+        <p>The big red <strong>✖</strong> in the top-left corner always means "go back" or "stop", wherever you are.</p>
+
+        <h3>Who's playing?</h3>
+        <div class="split">
+          <div>
+            <p>
+              Each child gets their own player, with their own beasts, coins and clothes. Tap
+              <strong>New</strong>, type a name (a grown-up can help) and choose one of ten animal
+              pictures. After that, just tap your picture to carry on where you left off.
+            </p>
+            <p>
+              The <strong>gear</strong> in the corner opens Settings, and <strong>Parents</strong> opens
+              the grown-ups' area. Both are explained in <a href="#parents">chapter 12</a>.
+            </p>
+          </div>
+          <figure><div class="shot"><img src="manual/players.jpg" alt="Who's playing? screen with a player card and a New button" loading="lazy" width="1024" height="768"></div>
+            <figcaption><b>Who's playing?</b> One card per player.</figcaption></figure>
+        </div>
+
+        <h3>Pick two eggs</h3>
+        <p>
+          Every new player chooses <strong>two eggs of different elements</strong>. There are six
+          elements: Fire, Water, Grass, Electric, Ice and Rock. Each egg holds one of that element's two
+          beasts, chosen by surprise. Once you've hatched your first, its element is ticked off and its
+          picture appears in the egg's corner, so your second beast is always a different kind.
+        </p>
+        <div class="trio">
+          <figure><div class="shot"><img src="manual/new-eggs.jpg" alt="Six elemental eggs to choose from" loading="lazy" width="1024" height="768"></div><figcaption><b>1.</b> Choose an egg.</figcaption></figure>
+          <figure><div class="shot"><img src="manual/hatch.jpg" alt="An ice egg cracking as it is tapped" loading="lazy" width="1024" height="768"></div><figcaption><b>2.</b> Tap, tap, tap to hatch it!</figcaption></figure>
+          <figure><div class="shot"><img src="manual/hatched.jpg" alt="Naming the new beast and picking its colour and pattern" loading="lazy" width="1024" height="768"></div><figcaption><b>3.</b> Make it yours.</figcaption></figure>
+        </div>
+        <p>
+          Tap the egg until it wobbles, rattles and bursts open. Then give your baby a name, pick one of
+          seven shades of its element's colour, and choose plain, spots or stripes. Tap
+          <strong>Done ✔</strong> and you're ready to play. (You can change the shade, pattern and name
+          later in the Shop.)
+        </p>
+        <div class="note"><span class="tag">Note</span>
+          <p>The first time a player reaches the home screen, a short <strong>tour</strong> lights up each meter and the button that fills it. Tap anywhere to move on, or <strong>Skip</strong>. A grown-up can replay it from Parental controls.</p>
+        </div>
+      </div>
+      <div class="folio"><span>Getting Started</span><b>3</b></div>
+    </section>
+
+    <!-- ===================== 2. HOME SCREEN ===================== -->
+    <section class="page" id="home" aria-labelledby="home-h">
+      <div class="banner" style="--c1:#3f8fe8;--c2:#24579b">
+        <div class="chap"><span><small>CH.</small>2</span></div>
+        <h2 id="home-h">The Home Screen</h2>
+        <p>Everything about your beast, at a glance.</p>
+      </div>
+      <div class="page-body">
+        <figure>
+          <div class="shot annotated">
+            <img src="manual/home.jpg" alt="The home screen, with numbered callouts" width="1024" height="768">
+            <span class="pin" style="left:2.6%;top:3.4%">1</span>
+            <span class="pin" style="left:15.2%;top:3%">2</span>
+            <span class="pin" style="left:44.5%;top:12%">3</span>
+            <span class="pin" style="left:53%;top:4.4%">4</span>
+            <span class="pin" style="left:84.5%;top:4%">5</span>
+            <span class="pin" style="left:8.6%;top:17%">6</span>
+            <span class="pin" style="left:28.9%;top:17%">7</span>
+            <span class="pin" style="left:49.2%;top:17%">8</span>
+            <span class="pin" style="left:69.5%;top:17%">9</span>
+            <span class="pin" style="left:63%;top:47%">10</span>
+            <span class="pin" style="left:2.6%;top:84.5%">11</span>
+          </div>
+          <figcaption>The home screen in landscape. In portrait, the same parts stack up neatly.</figcaption>
+        </figure>
+        <ul class="legend">
+          <li><span class="n">1</span><span><strong>Player picture.</strong> Back to "Who's playing?". Your game is saved automatically.</span></li>
+          <li><span class="n">2</span><span><strong>House.</strong> Visit all your beasts and choose who to look after. It bounces when an egg is waiting there.</span></li>
+          <li><span class="n">3</span><span><strong>Name, element, stars and growth bar.</strong> One star for a Baby, two for a Kid, three for an Adult. The blue bar fills as your beast grows.</span></li>
+          <li><span class="n">4</span><span><strong>Stats.</strong> <span class="stat s">Strong</span> <span class="stat f">Fast</span> <span class="stat m">Smart</span>. Raise them by training.</span></li>
+          <li><span class="n">5</span><span><strong>Coins.</strong> Earned by caring, training and battling. Spend them in the Shop.</span></li>
+          <li><span class="n">6</span><span><strong>Tummy</strong> (apple). Goes down slowly. Fill it with <strong>Feed</strong>.</span></li>
+          <li><span class="n">7</span><span><strong>Fun</strong> (smiley). Goes down slowly. Fill it with <strong>Play</strong>.</span></li>
+          <li><span class="n">8</span><span><strong>Energy</strong> (battery). Used by training and battles. Fill it with <strong>Sleep</strong>.</span></li>
+          <li><span class="n">9</span><span><strong>Health</strong> (heart). Battles can hurt it. Fix it with the <strong>Doctor</strong>.</span></li>
+          <li><span class="n">10</span><span><strong>Your beast!</strong> Tap it for a pat. Its face shows how it feels, and a thought bubble shows what it needs most.</span></li>
+          <li><span class="n">11</span><span><strong>Action buttons.</strong> Feed, Play, Sleep, Train, Battle, Doctor, Dress up and Shop.</span></li>
+        </ul>
+        <div class="tip"><span class="tag">Tip!</span>
+          <p>Bars turn from green to yellow to red as they run low. If you're not sure what to do next, look at the <strong>thought bubble</strong>: a plaster means the Doctor, an apple means food, a moon means bedtime, and a ball means playtime.</p>
+        </div>
+        <div class="note"><span class="tag">Note</span>
+          <p>Meters only go down <strong>while the game is open</strong>. Close the app for a day or a week and your beast will be exactly as you left it. No sad surprises.</p>
+        </div>
+      </div>
+      <div class="folio"><span>The Home Screen</span><b>4</b></div>
+    </section>
+
+    <!-- ===================== 3. CARE ===================== -->
+    <section class="page" id="care" aria-labelledby="care-h">
+      <div class="banner" style="--c1:#ff8fc8;--c2:#d6589b">
+        <div class="chap"><span><small>CH.</small>3</span></div>
+        <h2 id="care-h">Looking After Your Beast</h2>
+        <p>Feed, play, sleep and the Doctor.</p>
+      </div>
+      <div class="page-body">
+        <h3>Feed</h3>
+        <div class="split">
+          <div>
+            <p>Tap <strong>Feed</strong> and three snacks slide up. Tap one and your beast gobbles it down.</p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Snack</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td>🍎 Apple</td><td>Fills the tummy a little</td></tr>
+                <tr><td>🐟 Fish</td><td>Fills the tummy the most, plus a tiny bit of energy</td></tr>
+                <tr><td>🍰 Cake</td><td>A small snack, but lots of fun!</td></tr>
+              </tbody>
+            </table></div>
+            <p>Feeding a hungry beast earns a coin. Food is always free.</p>
+          </div>
+          <figure><div class="shot"><img src="manual/feed.jpg" alt="The feed tray with apple, fish and cake" loading="lazy" width="1024" height="768"></div><figcaption>Ember is thinking about an apple.</figcaption></figure>
+        </div>
+
+        <h3>Play</h3>
+        <div class="split">
+          <div>
+            <p>
+              Tap <strong>Play</strong>, then tap anywhere in the meadow to throw the ball. Your beast
+              runs after it and leaps to catch it. Five catches fill the circles at the top and make for
+              a lovely game of fetch, worth coins and growth.
+            </p>
+            <p>You can also just <strong>tap your beast</strong> any time for a pat. It wiggles happily and grows a tiny bit.</p>
+          </div>
+          <figure><div class="shot"><img src="manual/play.jpg" alt="Playing fetch, with the ball bouncing across the meadow" loading="lazy" width="1024" height="768"></div><figcaption>Fetch! The ball bounces off across the grass.</figcaption></figure>
+        </div>
+
+        <h3>Sleep &amp; dreams</h3>
+        <p>
+          Tap <strong>Sleep</strong> (it turns into <strong>Wake</strong>) and the sky goes dark. Every
+          bedtime starts with a short dream game, chosen at random. The better you do, the more
+          <strong>sleep stars</strong> your beast gets, and the faster it recharges:
+        </p>
+        <div class="duo">
+          <figure><div class="shot"><img src="manual/dream-a.jpg" alt="Join the stars dream: glowing dots to connect" loading="lazy" width="1024" height="768"></div><figcaption><b>Join the stars.</b> Trace from star to star to draw a picture in the sky.</figcaption></figure>
+          <figure><div class="shot"><img src="manual/dream-b.jpg" alt="Counting sheep dream: a sheep at the start of a looping path" loading="lazy" width="1024" height="768"></div><figcaption><b>Counting sheep.</b> Lead the sheep along the road and over the fence.</figcaption></figure>
+        </div>
+        <p>
+          The moon bar along the bottom is the timer. In <strong>Counting sheep</strong>, keep your finger
+          on the road: if you wander off, the road turns purple and the sheep waits. Put your finger back
+          <strong>on the sheep</strong> to carry on.
+        </p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Sleep stars</th><th class="num">Recharge speed</th></tr></thead>
+          <tbody>
+            <tr><td>No stars (dream skipped)</td><td class="num">Normal</td></tr>
+            <tr><td>★</td><td class="num">1.3× faster</td></tr>
+            <tr><td>★★</td><td class="num">2.2× faster</td></tr>
+            <tr><td>★★★</td><td class="num">3.5× faster!</td></tr>
+          </tbody>
+        </table></div>
+        <div class="tip"><span class="tag">Tip!</span>
+          <p>After the dream, tap <strong>Switch</strong> to pop over to the House and play with a different beast. Sleeping beasts <strong>keep recharging</strong> while you look after someone else, and a little message tells you when they wake up.</p>
+        </div>
+
+        <h3>The Doctor</h3>
+        <div class="split">
+          <div>
+            <p>
+              Losing a battle can leave your beast feeling sore, and it can't battle again with less than
+              a third of its health. Tap <strong>Doctor</strong>: glowing sore spots appear on its body.
+              <strong>Drag a plaster</strong> from the box on the right and drop it on each spot. Three
+              plasters and it's all better!
+            </p>
+            <p>Health also comes back slowly while your beast sleeps.</p>
+          </div>
+          <figure><div class="shot"><img src="manual/doctor.jpg" alt="The Doctor: glowing sore spots and a box of plasters" loading="lazy" width="1024" height="768"></div><figcaption>"Plasters on the sore spots!"</figcaption></figure>
+        </div>
+      </div>
+      <div class="folio"><span>Looking After Your Beast</span><b>5–6</b></div>
+    </section>
+
+    <!-- ===================== 4. TRAINING ===================== -->
+    <section class="page" id="train" aria-labelledby="train-h">
+      <div class="banner" style="--c1:#ff8a4c;--c2:#d4571c">
+        <div class="chap"><span><small>CH.</small>4</span></div>
+        <h2 id="train-h">Training &amp; the Nine Brain Games</h2>
+        <p>Every stat is trained by a real learning game.</p>
+      </div>
+      <div class="page-body">
+        <div class="split">
+          <div>
+            <p>
+              Tap <strong>Train</strong> and pick a stat. Each stat has <strong>three different
+              games</strong>, which take turns, so training never gets samey. After a short "3, 2, 1"
+              countdown, the game begins. At the end you earn <strong>1 to 3 stars</strong>: more stars
+              means more stat points, plus coins and growth either way.
+            </p>
+            <p>
+              Training uses a little energy and food, and your beast needs some energy left to start.
+              The coloured bar under the cards shows how many points your beast has trained so far. The
+              striped part is locked until it grows up (see <a href="#grow">chapter 5</a>).
+            </p>
+          </div>
+          <figure><div class="shot"><img src="manual/train-menu.jpg" alt="Train menu with Strong, Fast and Smart cards" loading="lazy" width="1024" height="768"></div><figcaption><b>Train!</b> Strong, Fast or Smart.</figcaption></figure>
+        </div>
+        <p>
+          The games get harder or easier to match each player's <strong>age band</strong> (3–4, 5–6, 7–8
+          or 9+), which a grown-up sets in Parental controls. Here's what each one practises.
+        </p>
+
+        <h4><span class="stat s">Strong</span> Memory &amp; comparing numbers</h4>
+        <div class="games">
+          <div class="game"><img src="manual/train-combo.jpg" alt="Copy me! Element pads beside the beast" loading="lazy" width="1024" height="768">
+            <div class="gt">Copy me!</div><div class="gs">Working memory</div>
+            <p>Watch your beast punch a combo on the element pads (👀 <em>Watch!</em>), then copy it (👆 <em>Your turn!</em>). Each combo copied charges a glowing power ball, and at the end it blasts the punching bag. Combos get longer as you get them right.</p></div>
+          <div class="game"><img src="manual/train-heavy.jpg" alt="Pick the heavier! Two barbells with numbers" loading="lazy" width="1024" height="768">
+            <div class="gt">Pick the heavier!</div><div class="gs">Comparing numbers</div>
+            <p>Two barbells, two numbers. Tap the bigger one and your beast lifts it. Older players compare sums and times tables, like 9 or 8 + 4.</p></div>
+          <div class="game"><img src="manual/train-pairs.jpg" alt="Match pairs! A grid of face-down cards" loading="lazy" width="1024" height="768">
+            <div class="gt">Match pairs!</div><div class="gs">Visual memory</div>
+            <p>Flip two cards at a time to find matching element pairs. Remember where you saw each one! More pairs for older players.</p></div>
+        </div>
+
+        <h4><span class="stat f">Fast</span> Counting, letters &amp; quick thinking</h4>
+        <div class="games">
+          <div class="game"><img src="manual/train-order.jpg" alt="A, B, C… letter targets around the meadow" loading="lazy" width="1024" height="768">
+            <div class="gt">Dash in order</div><div class="gs">Counting &amp; the alphabet</div>
+            <p>Targets appear all over the meadow. Tap them in order (1, 2, 3… or A, B, C…) and your beast zips to each one. Older players count in 2s and 5s or mix 1, A, 2, B. Dots help little ones count.</p></div>
+          <div class="game"><img src="manual/train-sort.jpg" alt="Catch Vowels: letter bubbles to tap" loading="lazy" width="1024" height="768">
+            <div class="gt">Catch the match!</div><div class="gs">Sorting &amp; categories</div>
+            <p>Only catch the ones that fit the rule at the top: a certain element, letters not numbers, even numbers, vowels, or multiples. Leave the others alone!</p></div>
+          <div class="game"><img src="manual/train-word.jpg" alt="Spell it! A star picture with four letter slots" loading="lazy" width="1024" height="768">
+            <div class="gt">Spell it!</div><div class="gs">Phonics &amp; spelling</div>
+            <p>A picture appears with empty letter slots. Dash to the letters in the right order to spell it. For 3–4 year olds it's <em>First letter!</em>, just the starting sound.</p></div>
+        </div>
+
+        <h4><span class="stat m">Smart</span> Sums, patterns &amp; puzzles</h4>
+        <div class="games">
+          <div class="game"><img src="manual/train-sums.jpg" alt="Chalkboard sum 2 + 5 with counting dots" loading="lazy" width="1024" height="768">
+            <div class="gt">Add them up!</div><div class="gs">Addition &amp; times tables</div>
+            <p>Your beast chalks a sum on the board, with counting dots to help. Tap the right answer of three. Older players get bigger sums and the 2, 5 and 10 times tables.</p></div>
+          <div class="game"><img src="manual/train-pattern.jpg" alt="What's next? A number sequence counting down" loading="lazy" width="1024" height="768">
+            <div class="gt">What's next?</div><div class="gs">Patterns &amp; sequences</div>
+            <p>Work out the pattern (pictures, counting up, counting down, jumps) and pick what comes next.</p></div>
+          <div class="game"><img src="manual/train-missing.jpg" alt="Find the ? 8 + ? = 12" loading="lazy" width="1024" height="768">
+            <div class="gt">Find the ?</div><div class="gs">Missing numbers</div>
+            <p>Something's missing! Count the stars, take some away, or find the hidden number in a sum. For 3–4 year olds it's <em>How many?</em>, a simple counting game.</p></div>
+        </div>
+        <div class="note"><span class="tag">Note</span>
+          <p>There's no "fail" in training. A wrong answer gets a gentle wobble and shows the right one, then the game carries on. Every session earns something.</p>
+        </div>
+
+        <h3>Age bands at a glance</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Age band</th><th>Strong</th><th>Fast</th><th>Smart</th></tr></thead>
+          <tbody>
+            <tr><td><strong>3–4</strong></td><td>3 big pads, combos of 1–3, 2 pairs</td><td>Count 1–5 with dots, first letters</td><td>Sums up to 5, counting</td></tr>
+            <tr><td><strong>5–6</strong></td><td>4 pads, combos of 2–4, 3 pairs</td><td>Count to 10 with dots, 3-letter words</td><td>Sums up to 10</td></tr>
+            <tr><td><strong>7–8</strong></td><td>5 pads, combos of 3–5, 4 pairs</td><td>Numbers and A–Z, 4-letter words</td><td>Sums up to 9 + 9</td></tr>
+            <tr><td><strong>9+</strong></td><td>6 pads, combos of 3–6, 5 pairs</td><td>Count in 2s and 5s, mixed 1, A, 2, B, 5-letter words</td><td>Bigger sums, 2×, 5×, 10× tables</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Starting over with stats</h3>
+        <p>
+          Changed your mind about how you've trained a beast? Once it has trained points, a
+          <strong>Reset</strong> button appears under the bar in the Train menu. For 25 coins (tap twice
+          to be sure) its stats go back to where they started. It stays the same age and keeps its look.
+        </p>
+      </div>
+      <div class="folio"><span>Training</span><b>7–8</b></div>
+    </section>
+
+    <!-- ===================== 5. GROWING UP ===================== -->
+    <section class="page" id="grow" aria-labelledby="grow-h">
+      <div class="banner" style="--c1:#7a5ad8;--c2:#4f35a3">
+        <div class="chap"><span><small>CH.</small>5</span></div>
+        <h2 id="grow-h">Growing Up</h2>
+        <p>Baby → Kid → Adult. How you train shapes how it looks.</p>
+      </div>
+      <div class="page-body">
+        <div class="split">
+          <div>
+            <p>
+              Everything your beast does fills its <strong>growth bar</strong>: eating, playing, sleeping,
+              training and battling. When the bar is full, the screen goes dark, your beast glows and
+              flickers between its old and new shapes, and then, <em>flash!</em>, it grows up. A card
+              shows its stats and gives you a coin bonus.
+            </p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Stage</th><th class="num">Stars</th><th class="num">Max training points</th></tr></thead>
+              <tbody>
+                <tr><td>Baby</td><td class="num">★</td><td class="num">45</td></tr>
+                <tr><td>Kid</td><td class="num">★★</td><td class="num">90</td></tr>
+                <tr><td>Adult</td><td class="num">★★★</td><td class="num">150</td></tr>
+              </tbody>
+            </table></div>
+            <p>
+              The points are shared between all three stats, so you can make an all-rounder or put
+              everything into one stat for a super-strong, super-fast or super-smart beast.
+            </p>
+          </div>
+          <figure><div class="shot"><img src="manual/grow-card.jpg" alt="Growing up: Sprig becomes a Kid with a Smart look" loading="lazy" width="1024" height="768"></div><figcaption>Sprig grows into a <b>Kid</b>, with a flower crown and a gem from Smart training.</figcaption></figure>
+        </div>
+        <h3>Training paths</h3>
+        <p>Each time your beast grows, whatever it trained most changes how it looks, and the changes build up at Adult:</p>
+        <ul>
+          <li><span class="stat s">Strong</span> beasts get bigger and bolder, with armour, horns, tusks or mighty fists, and a power ring at their feet.</li>
+          <li><span class="stat f">Fast</span> beasts get sleek and swept-back, with wings, fins, wind swooshes and speedy streaks.</li>
+          <li><span class="stat m">Smart</span> beasts get a glowing forehead gem, twinkly eyes, and magical crowns, halos and sparkles.</li>
+        </ul>
+        <p>Mix two kinds of training and you'll get a mix of both looks. Every beast has its own versions, so it's worth trying them all!</p>
+      </div>
+      <div class="folio"><span>Growing Up</span><b>9</b></div>
+    </section>
+
+    <!-- ===================== 6. BATTLES ===================== -->
+    <section class="page" id="battle" aria-labelledby="battle-h">
+      <div class="banner" style="--c1:#e84a4a;--c2:#a8282b">
+        <div class="chap"><span><small>CH.</small>6</span></div>
+        <h2 id="battle-h">Battles</h2>
+        <p>Pick a challenger and watch your training pay off.</p>
+      </div>
+      <div class="page-body">
+        <figure><div class="shot"><img src="manual/battle-pick.jpg" alt="Pick a battle: Easy, Medium and Hard opponents and the Boss card" loading="lazy" width="1024" height="768"></div>
+          <figcaption><b>Pick a battle!</b> Three wild beasts, the boss underneath, and the dice to swap them.</figcaption></figure>
+        <h3>Choosing an opponent</h3>
+        <ul>
+          <li><strong>Easy</strong> (green), <strong>Medium</strong> (yellow) and <strong>Hard</strong> (red). Harder opponents are stronger but pay more coins.</li>
+          <li>The <strong>badge on the top left</strong> shows the opponent's element.</li>
+          <li>A <strong>green up arrow</strong> on the top right means your element beats theirs. A <strong>red down arrow</strong> means theirs beats yours.</li>
+          <li>The same three opponents <strong>stay until you beat one</strong>. Lose to a tough one? Train up and try again!</li>
+          <li>The <strong>dice</strong> swap all three for new ones for 5 coins. Tap once (it turns into a tick) and again to pay, so a slip of the finger costs nothing.</li>
+        </ul>
+        <h3>The fight</h3>
+        <div class="split">
+          <div>
+            <p>Battles play out by themselves. Sit back and cheer! Each beast has a <strong>health bar</strong> and, under it, a thin blue <strong>turn gauge</strong>. Every stat shows up in its own way:</p>
+            <ul>
+              <li><span class="stat s">Strong</span> hits harder and shrugs off damage with a shield glint.</li>
+              <li><span class="stat f">Fast</span> fills the turn gauge sooner for <em>Quick!</em> double turns, and sometimes <em>Dodges!</em></li>
+              <li><span class="stat m">Smart</span> lands sparkly <em>Super!</em> hits that do double damage.</li>
+            </ul>
+            <p>The <strong>fast-forward</strong> button (top right) doubles the speed.</p>
+          </div>
+          <figure><div class="shot"><img src="manual/battle-fight.jpg" alt="Ember versus a water opponent in the autumn woods arena" loading="lazy" width="1024" height="768"></div><figcaption>One of three arenas: field, autumn woods or snowy peaks.</figcaption></figure>
+        </div>
+        <h3>Win or lose</h3>
+        <div class="split">
+          <div>
+            <p>
+              <strong>Win</strong> and you get coins and growth, and three fresh opponents. Sometimes a
+              win even drops an <strong>egg</strong> of a beast you don't have yet (more often on
+              Hard). Hatch it straight away or keep it in the House for later.
+            </p>
+            <p>
+              <strong>Lose</strong> and you still get a couple of coins. Your beast will be a bit sore,
+              so pay a visit to the Doctor.
+            </p>
+          </div>
+          <figure><div class="shot"><img src="manual/battle-result.jpg" alt="You win! card with +8 coins" loading="lazy" width="1024" height="768"></div><figcaption>You win!</figcaption></figure>
+        </div>
+        <h3>Element chart</h3>
+        <p>An element with the advantage does <strong>20% more damage</strong>. Read across: <span class="hit up">▲</span> means the attacker has the edge.</p>
+        <div class="table-wrap"><table class="chart">
+          <thead><tr><th>Attacker ↓ / Defender →</th><th>Fire</th><th>Water</th><th>Grass</th><th>Electric</th><th>Ice</th><th>Rock</th></tr></thead>
+          <tbody>
+            <tr><td><span class="el" style="background:#ff6b3d"></span>Fire</td><td>–</td><td><span class="hit down">▼</span></td><td><span class="hit up">▲</span></td><td>–</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td></tr>
+            <tr><td><span class="el" style="background:#3f8fe8"></span>Water</td><td><span class="hit up">▲</span></td><td>–</td><td><span class="hit down">▼</span></td><td><span class="hit down">▼</span></td><td>–</td><td><span class="hit up">▲</span></td></tr>
+            <tr><td><span class="el" style="background:#5cbf4a"></span>Grass</td><td><span class="hit down">▼</span></td><td><span class="hit up">▲</span></td><td>–</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td><td>–</td></tr>
+            <tr><td><span class="el" style="background:#ffcf2e"></span>Electric</td><td>–</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td><td>–</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td></tr>
+            <tr><td><span class="el" style="background:#8fd8f0"></span>Ice</td><td><span class="hit down">▼</span></td><td>–</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td><td>–</td><td><span class="hit up">▲</span></td></tr>
+            <tr><td><span class="el" style="background:#b08560"></span>Rock</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td><td>–</td><td><span class="hit up">▲</span></td><td><span class="hit down">▼</span></td><td>–</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:0.85rem">Every element beats two others and is beaten by two. Fire &amp; Electric, Water &amp; Ice, and Grass &amp; Rock are an even match.</p>
+      </div>
+      <div class="folio"><span>Battles</span><b>10–11</b></div>
+    </section>
+
+    <!-- ===================== 7. BOSSES ===================== -->
+    <section class="page" id="boss" aria-labelledby="boss-h">
+      <div class="banner" style="--c1:#6c3fb5;--c2:#3e1f78">
+        <div class="chap"><span><small>CH.</small>7</span></div>
+        <h2 id="boss-h">Boss Battles</h2>
+        <p>Twelve royal beasts. Can you beat them all?</p>
+      </div>
+      <div class="page-body">
+        <div class="split">
+          <div>
+            <p>
+              The purple card under the three wild beasts is the <strong>Boss</strong>: a crowned king,
+              queen, giant or mega version of one of the twelve beasts, fought in a moonlit castle
+              courtyard. Bosses are tough, with extra health and lots of training.
+            </p>
+            <ul>
+              <li>Only <strong>Adults</strong> can take on a boss. Until then the card shows a lock.</li>
+              <li>The same boss waits until it's beaten. You can pay 20 coins (the dice) to meet a different one.</li>
+              <li>The number beside "Boss" counts how many of the <strong>12 bosses</strong> you've beaten.</li>
+              <li>Boss battles use more energy and food than a normal battle.</li>
+            </ul>
+          </div>
+          <figure><div class="shot"><img src="manual/battle-boss.jpg" alt="Buzzle versus King Flurry in the castle courtyard" loading="lazy" width="1024" height="768"></div><figcaption>Buzzle takes on <b>King Flurry</b>.</figcaption></figure>
+        </div>
+        <h3>The prize</h3>
+        <div class="split">
+          <div>
+            <p>
+              Beat a boss and your beast becomes a <strong>Champion</strong>. It wins the golden
+              <strong>crown</strong> (only champions may wear it!), a pile of coins and a
+              <strong>golden egg</strong>. Each beast can only become champion once, so to beat all
+              twelve bosses you'll need to raise lots of Adults.
+            </p>
+            <p>
+              Hatch the golden egg to choose an element. The egg will hatch a beast of that element
+              that you <em>don't</em> have yet. The little pictures in each egg's corner show the beasts
+              you already own of that element (and any eggs still waiting in the House). Once you have
+              both beasts of an element, its egg is greyed out.
+            </p>
+          </div>
+          <figure><div class="shot"><img src="manual/egg-pick.jpg" alt="Pick an egg: each egg card shows mini portraits of the beasts already owned, and Fire is greyed out" loading="lazy" width="1024" height="768"></div><figcaption>Both fire beasts are already here, so Fire is greyed out.</figcaption></figure>
+        </div>
+        <div class="secret"><span class="tag">Secret</span>
+          <p>A beast with <strong>every single training point</strong> filled (all 150 as an Adult) is guaranteed to beat any boss, however its points are shared out. Lose to a boss? Lose a bit of energy, earn a few coins, and keep training!</p>
+        </div>
+        <div class="tip"><span class="tag">Tip!</span>
+          <p>Check the boss's element badge. Bring an Adult whose element beats it (look for the <strong>green arrow</strong>) and the fight gets much easier.</p>
+        </div>
+      </div>
+      <div class="folio"><span>Boss Battles</span><b>12</b></div>
+    </section>
+
+    <!-- ===================== 8. SHOP ===================== -->
+    <section class="page" id="shop" aria-labelledby="shop-h">
+      <div class="banner" style="--c1:#2ec4b6;--c2:#1a8a7f">
+        <div class="chap"><span><small>CH.</small>8</span></div>
+        <h2 id="shop-h">The Shop &amp; Dress Up</h2>
+        <p>Hats, glasses, neckwear, scenes and paint.</p>
+      </div>
+      <div class="page-body">
+        <div class="split">
+          <div>
+            <p>
+              Spend your coins in the <strong>Shop</strong>. The tabs along the top are
+              <strong>hats</strong>, <strong>glasses</strong>, <strong>neckwear</strong>,
+              <strong>backgrounds</strong> and <strong>paint</strong>. Tap an item to try it on your beast
+              in the preview, then tap the price to buy it. A green tick means you already own it.
+            </p>
+            <ul>
+              <li>Clothes and backgrounds belong to the <strong>player</strong>, so every one of your beasts can wear them.</li>
+              <li>Each beast keeps its <strong>own outfit</strong>. Use <strong>Dress up</strong> to change it any time for free.</li>
+              <li>The <strong>paint</strong> tab changes your beast's shade or pattern for a few coins, and its <strong>name</strong> for free.</li>
+            </ul>
+          </div>
+          <figure><div class="shot"><img src="manual/shop.jpg" alt="The shop's hats tab with a try-on preview" loading="lazy" width="1024" height="768"></div><figcaption>Trying on hats in the Shop.</figcaption></figure>
+        </div>
+        <div class="duo">
+          <figure><div class="shot"><img src="manual/shop-bg.jpg" alt="Backgrounds tab with scene postcards" loading="lazy" width="1024" height="768"></div><figcaption><b>Backgrounds</b> change the scene on the home screen: beach, forest, candy land, snow, under the sea, space and more.</figcaption></figure>
+          <figure><div class="shot"><img src="manual/dress.jpg" alt="Dress up screen with owned items" loading="lazy" width="1024" height="768"></div><figcaption><b>Dress up</b> shows only what you own. Mix and match!</figcaption></figure>
+        </div>
+        <h3>Special items</h3>
+        <p><strong>Set Mastery items</strong> (marked with a sparkle and a lock) unlock once you've bought <em>every</em> regular item in that tab: the Galaxy Crown, Rainbow Shades, Royal Cape and the Rainbow Castle background.</p>
+        <p><strong>Achievement items</strong> can't be bought at all. They're earned!</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Achievement</th><th>Reward</th></tr></thead>
+          <tbody>
+            <tr><td>Finish 10 Strong trainings</td><td>Gold Medal</td></tr>
+            <tr><td>Finish 10 Fast trainings</td><td>Speed Goggles</td></tr>
+            <tr><td>Finish 10 Smart trainings</td><td>Graduation Cap</td></tr>
+            <tr><td>Win 50 battles</td><td>Champion's Helmet</td></tr>
+            <tr><td>Raise 3 Adults</td><td>Golden Arena background</td></tr>
+            <tr><td>Beat a boss</td><td>The Crown (for that champion)</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:0.85rem">Achievement items show their progress in the Shop, so you can see how close you are.</p>
+      </div>
+      <div class="folio"><span>The Shop &amp; Dress Up</span><b>13</b></div>
+    </section>
+
+    <!-- ===================== 9. HOUSE ===================== -->
+    <section class="page" id="house" aria-labelledby="house-h">
+      <div class="banner" style="--c1:#ff9b54;--c2:#d4682a">
+        <div class="chap"><span><small>CH.</small>9</span></div>
+        <h2 id="house-h">The House &amp; Your Collection</h2>
+        <p>Where all your beasts live, and where the secrets are kept.</p>
+      </div>
+      <div class="page-body">
+        <figure><div class="shot"><img src="manual/house.jpg" alt="The house with three floors of beasts, a collection shelf, an egg and the Bosses button" loading="lazy" width="1024" height="768"></div>
+          <figcaption>The <b>House</b>: bedroom upstairs, kitchen and lounge in the middle, and the garden below.</figcaption></figure>
+        <p>Tap the <strong>house button</strong> on the home screen to visit. Your beasts wander about, hop, and have little thoughts. Sleeping beasts nap upstairs and show how charged up they are.</p>
+        <ul>
+          <li><strong>Choose who to look after.</strong> Tap any beast (or its slot on the shelf) to see its card and a short story about it, then tap <strong>Play!</strong>. Beasts you're not looking after are paused, just as if the game were closed.</li>
+          <li><strong>The collection shelf</strong> along the bottom has a slot for all twelve kinds of beast. Ones you haven't found yet are shadows with a question mark.</li>
+          <li><strong>Eggs waiting</strong> (from bosses or battle drops) sit in the top corner. Tap one to hatch it.</li>
+          <li><strong>The roof</strong> holds a locked secret egg, with a count of how many kinds of beast you've raised to Adult.</li>
+        </ul>
+        <div class="duo">
+          <figure><div class="shot"><img src="manual/house-bio.jpg" alt="Snowl's card: Snowl likes to fight smarter, not harder" loading="lazy" width="1024" height="768"></div><figcaption>Every beast's card hints at what it's good at. Read it carefully!</figcaption></figure>
+          <figure><div class="shot"><img src="manual/boss-house.jpg" alt="The Boss House castle with twelve bosses on three floors" loading="lazy" width="1024" height="768"></div><figcaption>The <b>Boss House</b>: beaten bosses lose their crowns and mope about in plasters. "Next!" marks the one waiting for you.</figcaption></figure>
+        </div>
+        <p>Tap <strong>Bosses</strong> in the top corner to visit the Boss House, and <strong>My House</strong> to come home.</p>
+        <div class="secret"><span class="tag">Secret</span>
+          <p>Raise <strong>all twelve kinds of beast to Adult</strong> and the egg on the roof unlocks. Tap it ten times in the dark... and find out what's inside! (Hint: bring your dancing shoes.) Once it's hatched, tap it on the roof any time to start the party again, and tap the dancers to make them twirl.</p>
+        </div>
+        <figure><div class="shot"><img src="manual/party.jpg" alt="Beasts dancing under a disco ball" loading="lazy" width="1024" height="768"></div><figcaption>What could it be?</figcaption></figure>
+      </div>
+      <div class="folio"><span>The House</span><b>14–15</b></div>
+    </section>
+
+    <!-- ===================== 10. BEASTS ===================== -->
+    <section class="page" id="beasts" aria-labelledby="beasts-h">
+      <div class="banner" style="--c1:#5cbf4a;--c2:#2f7d22">
+        <div class="chap"><span><small>CH.</small>10</span></div>
+        <h2 id="beasts-h">Meet the Beasts</h2>
+        <p>Twelve beasts, two for each element.</p>
+      </div>
+      <div class="page-body">
+        <p>
+          Every beast starts a little ahead in one stat. Most of them also have a
+          <strong>favourite</strong> stat (which counts for a bit extra in battle) and one they're
+          <strong>not keen on</strong> (which counts for a bit less). The numbers on screen don't change,
+          but you'll notice it in battle! Three beasts are happy all-rounders.
+        </p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Beast</th><th>Element</th><th>Starts best at</th><th>Favourite</th><th>Not keen on</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ember</strong>, a frilled fire lizard</td><td><span class="el" style="background:#ff6b3d"></span>Fire</td><td><span class="stat s">Strong</span></td><td colspan="2">All-rounder</td></tr>
+            <tr><td><strong>Flick</strong>, a storybook fox</td><td><span class="el" style="background:#ff6b3d"></span>Fire</td><td><span class="stat f">Fast</span></td><td><span class="stat f">Fast</span></td><td><span class="stat s">Strong</span></td></tr>
+            <tr><td><strong>Gilly</strong>, a reef axolotl</td><td><span class="el" style="background:#3f8fe8"></span>Water</td><td><span class="stat m">Smart</span></td><td><span class="stat m">Smart</span></td><td><span class="stat f">Fast</span></td></tr>
+            <tr><td><strong>Splosh</strong>, a sea lion</td><td><span class="el" style="background:#3f8fe8"></span>Water</td><td><span class="stat s">Strong</span></td><td><span class="stat s">Strong</span></td><td><span class="stat m">Smart</span></td></tr>
+            <tr><td><strong>Sprig</strong>, a leafy bulb sprite</td><td><span class="el" style="background:#5cbf4a"></span>Grass</td><td><span class="stat m">Smart</span></td><td colspan="2">All-rounder</td></tr>
+            <tr><td><strong>Thistle</strong>, a woodland hedgehog</td><td><span class="el" style="background:#5cbf4a"></span>Grass</td><td><span class="stat f">Fast</span></td><td><span class="stat f">Fast</span></td><td><span class="stat m">Smart</span></td></tr>
+            <tr><td><strong>Buzzle</strong>, a bumblebee</td><td><span class="el" style="background:#ffcf2e"></span>Electric</td><td><span class="stat f">Fast</span></td><td><span class="stat f">Fast</span></td><td><span class="stat s">Strong</span></td></tr>
+            <tr><td><strong>Nimbo</strong>, a storm cloud spirit</td><td><span class="el" style="background:#ffcf2e"></span>Electric</td><td><span class="stat m">Smart</span></td><td><span class="stat m">Smart</span></td><td><span class="stat f">Fast</span></td></tr>
+            <tr><td><strong>Snowl</strong>, a snowy owl</td><td><span class="el" style="background:#8fd8f0"></span>Ice</td><td><span class="stat m">Smart</span></td><td><span class="stat m">Smart</span></td><td><span class="stat s">Strong</span></td></tr>
+            <tr><td><strong>Flurry</strong>, a woolly snow bear</td><td><span class="el" style="background:#8fd8f0"></span>Ice</td><td><span class="stat s">Strong</span></td><td><span class="stat s">Strong</span></td><td><span class="stat m">Smart</span></td></tr>
+            <tr><td><strong>Pebbit</strong>, a stone golem</td><td><span class="el" style="background:#b08560"></span>Rock</td><td><span class="stat s">Strong</span></td><td><span class="stat s">Strong</span></td><td><span class="stat f">Fast</span></td></tr>
+            <tr><td><strong>Digby</strong>, a burrowing mole</td><td><span class="el" style="background:#b08560"></span>Rock</td><td><span class="stat f">Fast</span></td><td colspan="2">All-rounder</td></tr>
+          </tbody>
+        </table></div>
+        <div class="tip"><span class="tag">Tip!</span>
+          <p>In the game, the only clue is each beast's card in the House ("Snowl likes to fight smarter, not harder"). Little detectives can work it out for themselves, or a grown-up can peek at this table!</p>
+        </div>
+      </div>
+      <div class="folio"><span>Meet the Beasts</span><b>16</b></div>
+    </section>
+
+    <!-- ===================== 11. TIPS ===================== -->
+    <section class="page" id="tips" aria-labelledby="tips-h">
+      <div class="banner" style="--c1:#ffd35c;--c2:#e0a91f">
+        <div class="chap"><span><small>CH.</small>11</span></div>
+        <h2 id="tips-h">Hints &amp; Tips</h2>
+        <p>Secrets from the Beast Keepers' Club.</p>
+      </div>
+      <div class="page-body">
+        <h3>Caring</h3>
+        <ul>
+          <li>A happy beast is a healthy beast. Keep the tummy and fun bars out of the red and it'll smile at you.</li>
+          <li>Cake is the quickest way to cheer up a bored beast when you don't have time for fetch.</li>
+          <li>Go for three sleep stars at bedtime. A ★★★ sleep recharges more than three times as fast.</li>
+          <li>Got lots of beasts? Put one to bed, then <strong>Switch</strong> and train another while the first one recharges.</li>
+        </ul>
+        <h3>Training</h3>
+        <ul>
+          <li>Train your beast's <strong>favourite</strong> stat to get the most out of every point in battle.</li>
+          <li>Decide what kind of beast you want <em>before</em> it grows up. Its look changes with whatever it trained most at each stage.</li>
+          <li>All the stats are worth the same overall. A strong, fast or smart beast can win just as often; they simply fight differently.</li>
+          <li>Training points are capped until the next growth stage, so once the bar is full, battle and care to grow up faster.</li>
+        </ul>
+        <h3>Battling</h3>
+        <ul>
+          <li>Look for the <strong>green arrow</strong> before you pick a fight. Element advantage really helps.</li>
+          <li>Hard battles pay the most and are the likeliest to drop an egg, but make sure your beast is ready.</li>
+          <li>Can't beat a tough opponent? It'll still be there after some training. No need to spend coins on the dice.</li>
+          <li>For bosses, keep a few Adults in different elements so you always have one with the advantage.</li>
+        </ul>
+        <h3>Collecting</h3>
+        <ul>
+          <li>Golden eggs from bosses let you <em>choose</em> which beast to hatch. Use them on the beasts you're missing.</li>
+          <li>Buy every hat (or every pair of glasses, every neckwear, every background) to unlock that tab's Set Mastery item.</li>
+          <li>Train each stat ten times for three free achievement items!</li>
+        </ul>
+        <h3>Coins at a glance</h3>
+        <div class="duo">
+          <div class="table-wrap" style="margin:0"><table>
+            <thead><tr><th>Earn</th><th class="num">Coins</th></tr></thead>
+            <tbody>
+              <tr><td>Feed a hungry beast</td><td class="num">1</td></tr>
+              <tr><td>Play fetch (5 catches)</td><td class="num">3</td></tr>
+              <tr><td>Training session</td><td class="num">3</td></tr>
+              <tr><td>Win: Easy / Medium / Hard</td><td class="num">4 / 8 / 14</td></tr>
+              <tr><td>Lose a battle</td><td class="num">2</td></tr>
+              <tr><td>Beat a boss</td><td class="num">30+</td></tr>
+              <tr><td>Grow up</td><td class="num">15</td></tr>
+            </tbody>
+          </table></div>
+          <div class="table-wrap" style="margin:0"><table>
+            <thead><tr><th>Spend</th><th class="num">Coins</th></tr></thead>
+            <tbody>
+              <tr><td>Clothes</td><td class="num">15–58</td></tr>
+              <tr><td>Backgrounds</td><td class="num">50–110</td></tr>
+              <tr><td>Set Mastery items</td><td class="num">90–150</td></tr>
+              <tr><td>New shade or pattern</td><td class="num">10</td></tr>
+              <tr><td>New wild opponents</td><td class="num">5</td></tr>
+              <tr><td>A different boss</td><td class="num">20</td></tr>
+              <tr><td>Reset trained stats</td><td class="num">25</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <p style="font-size:0.85rem;margin-top:12px">Renaming a beast, dressing up and food are always free. There are no real-money purchases in Brain Beasts.</p>
+      </div>
+      <div class="folio"><span>Hints &amp; Tips</span><b>17</b></div>
+    </section>
+
+    <!-- ===================== 12. GROWN-UPS ===================== -->
+    <section class="page" id="parents" aria-labelledby="parents-h">
+      <div class="banner" style="--c1:#645373;--c2:#3b2d47">
+        <div class="chap"><span><small>CH.</small>12</span></div>
+        <h2 id="parents-h">For Grown-ups</h2>
+        <p>Settings, parental controls and saving.</p>
+      </div>
+      <div class="page-body">
+        <h3>Settings</h3>
+        <div class="split">
+          <div>
+            <p>Tap the <strong>gear</strong> on the "Who's playing?" screen. Settings apply to the whole device, for every player.</p>
+            <ul>
+              <li><strong>Sounds</strong>: sound effects on or off.</li>
+              <li><strong>Party music</strong>: the dance party's music on or off.</li>
+              <li><strong>Volume</strong>: quiet, medium or loud.</li>
+              <li><strong>Calm mode</strong>: no white flashes, screen shakes or flashing disco lights. Recommended for children who are sensitive to flashing images.</li>
+            </ul>
+          </div>
+          <figure><div class="shot"><img src="manual/settings.jpg" alt="Settings: sounds, party music, volume and calm mode" loading="lazy" width="1024" height="768"></div><figcaption>Settings.</figcaption></figure>
+        </div>
+        <h3>Parental controls</h3>
+        <div class="split">
+          <div>
+            <p>
+              Tap <strong>Parents</strong> on the "Who's playing?" screen (or in Settings) and answer a
+              times-table question to get in. For each player you can:
+            </p>
+            <ul>
+              <li><strong>Set the age band</strong> (3–4, 5–6, 7–8 or 9+). This changes the training games' difficulty straight away.</li>
+              <li><strong>Name &amp; picture</strong>: change the player's name or animal picture.</li>
+              <li><strong>Reset creatures</strong>: start again with two new eggs, <em>keeping</em> all coins, clothes and backgrounds.</li>
+              <li><strong>Show tour again</strong>: replay the home screen tour next time they play.</li>
+              <li><strong>Remove player</strong>: deletes the player from this device. It takes three steps, including typing the player's name, so it can't happen by accident.</li>
+            </ul>
+          </div>
+          <figure><div class="shot"><img src="manual/parents.jpg" alt="Parental controls for one player" loading="lazy" width="1024" height="768"></div><figcaption>Parental controls.</figcaption></figure>
+        </div>
+        <h3>Saving</h3>
+        <p>
+          The game saves automatically as you play, on this device only. There are no accounts, no
+          logins and no internet connection needed, and nothing is sent anywhere. Uninstalling the app
+          removes its saves unless your tablet's own system backup is turned on. See our
+          <a href="privacy.html">Privacy Policy</a> for details.
+        </p>
+        <div class="note"><span class="tag">Note</span>
+          <p>Brain Beasts has no ads, no links out of the game, no chat and no in-app purchases. Coins are earned only by playing.</p>
+        </div>
+      </div>
+      <div class="folio"><span>For Grown-ups</span><b>18–19</b></div>
+    </section>
+
+    <!-- ===================== BACK COVER ===================== -->
+    <section class="page back-cover" aria-label="Back cover">
+      <img class="icon-big" src="icon.png" alt="Brain Beasts icon" width="110" height="110">
+      <h2>Need a hand?</h2>
+      <p>Questions, bugs or ideas? Visit the <a href="support.html">Support &amp; Parent Guide</a><br>or email <a href="mailto:brainbeasts.support@gmail.com?subject=Brain%20Beasts%20Support">brainbeasts.support@gmail.com</a>.</p>
+      <p style="opacity:0.75;font-size:0.82rem;margin-top:22px">Happy hatching, Beast Keeper!</p>
+      <div class="folio"><span>Brain Beasts</span><span>© Brain Beasts</span></div>
+    </section>
+
+  </main>
+</body>
+</html>

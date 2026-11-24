@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Instruction Booklet — Brain Beasts</title>
-  <meta name="description" content="The official Brain Beasts instruction booklet: the screens, the care meters, all nine training games, battles, bosses, the house and parental controls.">
+  <title>Game Manual — Brain Beasts</title>
+  <meta name="description" content="The official Brain Beasts game manual: the screens, the care meters, all nine training games, battles, bosses, the house and parental controls.">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <style>
-    /* Instruction booklet styling: a printed game manual, circa 2002. No external fonts or scripts. */
+    /* Game manual styling: a printed game manual, circa 2002. No external fonts or scripts. */
     :root {
       --ink: #3b2d47;
       --ink-soft: #645373;
@@ -238,6 +238,9 @@
     .stat.s { background: var(--strong); }
     .stat.f { background: var(--fast); }
     .stat.m { background: var(--smart); }
+    .stat.a { background: linear-gradient(90deg, var(--strong), var(--fast), var(--smart)); text-shadow: 0 1px 0 rgba(59, 45, 71, 0.6); }
+    /* Meet the Beasts: stat chips sit in the middle of their columns */
+    .beasts th.mid, .beasts td:nth-child(n+3) { text-align: center; }
 
     /* Training game cards */
     .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 14px 0 6px; }
@@ -307,7 +310,7 @@
     <section class="page cover" aria-label="Cover">
       <div class="burst">Hatch!<br>Train!<br>Battle!</div>
       <img class="wordmark" src="wordmark.png" alt="Brain Beasts" width="440" height="220">
-      <div class="subtitle">Instruction Booklet</div>
+      <div class="subtitle">Game Manual</div>
       <div class="cover-shot"><img src="manual/home.jpg" alt="Ember the fire beast, crowned, on the home screen" width="1024" height="768"></div>
       <div class="badges">
         <span class="badge">Ages 3–9+</span>
@@ -315,7 +318,7 @@
         <span class="badge">Touch screen</span>
         <span class="badge">No ads · No internet needed</span>
       </div>
-      <div class="folio"><span>Brain Beasts</span><span>Keep this booklet for future reference</span></div>
+      <div class="folio"><span>Brain Beasts</span><span>Keep this manual for future reference</span></div>
     </section>
 
     <!-- ===================== CONTENTS ===================== -->
@@ -327,7 +330,7 @@
       </div>
       <div class="page-body">
         <p class="lede">
-          Welcome, Beast Keeper! Please read this booklet with your young player before starting. It
+          Welcome, Beast Keeper! Please read this manual with your young player before starting. It
           explains every screen in the game, all nine training games, battles and bosses, and the
           settings grown-ups can change. Little ones don't need to read anything to play: every button
           has a picture, and the game gives a gentle tour the first time.
@@ -644,8 +647,9 @@
         <h3>Starting over with stats</h3>
         <p>
           Changed your mind about how you've trained a beast? Once it has trained points, a
-          <strong>Reset</strong> button appears under the bar in the Train menu. For 25 coins (tap twice
-          to be sure) its stats go back to where they started. It stays the same age and keeps its look.
+          <strong>Reset</strong> button appears beside the bar in the Train menu. It's a big change, so a
+          grown-up has to answer a quick sum first (the same one as the Parents button). Then, for 25 coins,
+          its stats go back to where they started. It stays the same age and keeps its look.
         </p>
       </div>
       <div class="folio"><span>Training</span><b>7–8</b></div>
@@ -880,9 +884,9 @@
         </div>
         <p>Tap <strong>Bosses</strong> in the top corner to visit the Boss House, and <strong>My House</strong> to come home.</p>
         <div class="secret"><span class="tag">Secret</span>
-          <p>Raise <strong>all twelve kinds of beast to Adult</strong> and the egg on the roof unlocks. Tap it ten times in the dark... and find out what's inside! (Hint: bring your dancing shoes.) Once it's hatched, tap it on the roof any time to start the party again, and tap the dancers to make them twirl.</p>
+          <p>Raise <strong>all twelve kinds of beast to Adult</strong> and the egg on the roof unlocks. Tap it ten times in the dark... and find out what's inside! (Hint: bring your dancing shoes.) Once it's hatched, tap it on the roof any time to start the fun again.</p>
         </div>
-        <figure><div class="shot"><img src="manual/party.jpg" alt="Beasts dancing under a disco ball" loading="lazy" width="1024" height="768"></div><figcaption>What could it be?</figcaption></figure>
+        <figure><div class="shot"><img src="manual/party.jpg" alt="A sparkly disco ball, close up" loading="lazy" width="1024" height="768"></div><figcaption>What could it be?</figcaption></figure>
       </div>
       <div class="folio"><span>The House</span><b>14–15</b></div>
     </section>
@@ -901,21 +905,21 @@
           <strong>not keen on</strong> (which counts for a bit less). The numbers on screen don't change,
           but you'll notice it in battle! Three beasts are happy all-rounders.
         </p>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Beast</th><th>Element</th><th>Starts best at</th><th>Favourite</th><th>Not keen on</th></tr></thead>
+        <div class="table-wrap"><table class="beasts">
+          <thead><tr><th>Beast</th><th>Element</th><th class="mid">Starts best at</th><th class="mid">Favourite</th><th class="mid">Not keen on</th></tr></thead>
           <tbody>
-            <tr><td><strong>Ember</strong>, a frilled fire lizard</td><td><span class="el" style="background:#ff6b3d"></span>Fire</td><td><span class="stat s">Strong</span></td><td colspan="2">All-rounder</td></tr>
+            <tr><td><strong>Ember</strong>, a frilled fire lizard</td><td><span class="el" style="background:#ff6b3d"></span>Fire</td><td><span class="stat s">Strong</span></td><td colspan="2"><span class="stat a">All</span></td></tr>
             <tr><td><strong>Flick</strong>, a storybook fox</td><td><span class="el" style="background:#ff6b3d"></span>Fire</td><td><span class="stat f">Fast</span></td><td><span class="stat f">Fast</span></td><td><span class="stat s">Strong</span></td></tr>
             <tr><td><strong>Gilly</strong>, a reef axolotl</td><td><span class="el" style="background:#3f8fe8"></span>Water</td><td><span class="stat m">Smart</span></td><td><span class="stat m">Smart</span></td><td><span class="stat f">Fast</span></td></tr>
             <tr><td><strong>Splosh</strong>, a sea lion</td><td><span class="el" style="background:#3f8fe8"></span>Water</td><td><span class="stat s">Strong</span></td><td><span class="stat s">Strong</span></td><td><span class="stat m">Smart</span></td></tr>
-            <tr><td><strong>Sprig</strong>, a leafy bulb sprite</td><td><span class="el" style="background:#5cbf4a"></span>Grass</td><td><span class="stat m">Smart</span></td><td colspan="2">All-rounder</td></tr>
+            <tr><td><strong>Sprig</strong>, a leafy bulb sprite</td><td><span class="el" style="background:#5cbf4a"></span>Grass</td><td><span class="stat m">Smart</span></td><td colspan="2"><span class="stat a">All</span></td></tr>
             <tr><td><strong>Thistle</strong>, a woodland hedgehog</td><td><span class="el" style="background:#5cbf4a"></span>Grass</td><td><span class="stat f">Fast</span></td><td><span class="stat f">Fast</span></td><td><span class="stat m">Smart</span></td></tr>
             <tr><td><strong>Buzzle</strong>, a bumblebee</td><td><span class="el" style="background:#ffcf2e"></span>Electric</td><td><span class="stat f">Fast</span></td><td><span class="stat f">Fast</span></td><td><span class="stat s">Strong</span></td></tr>
             <tr><td><strong>Nimbo</strong>, a storm cloud spirit</td><td><span class="el" style="background:#ffcf2e"></span>Electric</td><td><span class="stat m">Smart</span></td><td><span class="stat m">Smart</span></td><td><span class="stat f">Fast</span></td></tr>
             <tr><td><strong>Snowl</strong>, a snowy owl</td><td><span class="el" style="background:#8fd8f0"></span>Ice</td><td><span class="stat m">Smart</span></td><td><span class="stat m">Smart</span></td><td><span class="stat s">Strong</span></td></tr>
             <tr><td><strong>Flurry</strong>, a woolly snow bear</td><td><span class="el" style="background:#8fd8f0"></span>Ice</td><td><span class="stat s">Strong</span></td><td><span class="stat s">Strong</span></td><td><span class="stat m">Smart</span></td></tr>
             <tr><td><strong>Pebbit</strong>, a stone golem</td><td><span class="el" style="background:#b08560"></span>Rock</td><td><span class="stat s">Strong</span></td><td><span class="stat s">Strong</span></td><td><span class="stat f">Fast</span></td></tr>
-            <tr><td><strong>Digby</strong>, a burrowing mole</td><td><span class="el" style="background:#b08560"></span>Rock</td><td><span class="stat f">Fast</span></td><td colspan="2">All-rounder</td></tr>
+            <tr><td><strong>Digby</strong>, a burrowing mole</td><td><span class="el" style="background:#b08560"></span>Rock</td><td><span class="stat f">Fast</span></td><td colspan="2"><span class="stat a">All</span></td></tr>
           </tbody>
         </table></div>
         <div class="tip"><span class="tag">Tip!</span>
@@ -1026,6 +1030,7 @@
               <li><strong>Reset creatures</strong>: start again with two new eggs, <em>keeping</em> all coins, clothes and backgrounds.</li>
               <li><strong>Show tour again</strong>: replay the home screen tour next time they play.</li>
               <li><strong>Remove player</strong>: deletes the player from this device. It takes three steps, including typing the player's name, so it can't happen by accident.</li>
+              <li><strong>Game manual</strong> (under the players): opens this manual in the web browser.</li>
             </ul>
           </div>
           <figure><div class="shot"><img src="manual/parents.jpg" alt="Parental controls for one player" loading="lazy" width="1024" height="768"></div><figcaption>Parental controls.</figcaption></figure>
@@ -1038,7 +1043,7 @@
           <a href="privacy.html">Privacy Policy</a> for details.
         </p>
         <div class="note"><span class="tag">Note</span>
-          <p>Brain Beasts has no ads, no links out of the game, no chat and no in-app purchases. Coins are earned only by playing.</p>
+          <p>Brain Beasts has no ads, no links out of the game (apart from this manual, behind the grown-ups' gate), no chat and no in-app purchases. Coins are earned only by playing.</p>
         </div>
       </div>
       <div class="folio"><span>For Grown-ups</span><b>18–19</b></div>
